@@ -16,6 +16,7 @@
     "axios": "^1.16.1",
     "clsx": "^2.1.1",
     "modern-normalize": "^3.0.1",
+    "react-hot-toast": "^2.6.0",
     "react-router-dom": "^7.15.1"
   }
 }
