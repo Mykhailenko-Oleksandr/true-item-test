@@ -27,7 +27,7 @@
   box-sizing: border-box;
 }
 
-body {
+#root {
   font-family: var(--font-roboto), sans-serif;
   display: flex;
   flex-direction: column;

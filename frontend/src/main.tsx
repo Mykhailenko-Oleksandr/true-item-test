@@ -8,6 +8,7 @@ import "./global.css";
 
 import App from "./components/App/App";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const queryClient = new QueryClient();
 
@@ -16,8 +17,12 @@ createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Header />
-        <App />
+        <main>
+          <App />
+        </main>
+        <Footer />
       </BrowserRouter>
+      <></>
     </QueryClientProvider>
   </StrictMode>,
 );
