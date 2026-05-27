@@ -10,7 +10,6 @@ const tasksSchema = new Schema(
     },
     content: {
       type: String,
-      default: "",
       trim: true,
     },
     tag: {
@@ -33,6 +32,6 @@ tasksSchema.index(
   },
 );
 
-tasksSchema.index({ tags: 1 });
+tasksSchema.index({ tag: 1 });
 
 export const Task = model("Task", tasksSchema);

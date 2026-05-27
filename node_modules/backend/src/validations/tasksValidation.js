@@ -15,7 +15,7 @@ export const taskIdSchema = {
 export const getAllTasksSchema = {
   [Segments.QUERY]: Joi.object({
     page: Joi.number().integer().min(1).default(1),
-    limit: Joi.number().integer().min(5).max(20).default(10),
+    perPage: Joi.number().integer().min(5).max(20).default(10),
     tag: Joi.string(),
     q: Joi.string().trim().allow(""),
   }),

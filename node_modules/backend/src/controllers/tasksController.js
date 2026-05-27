@@ -69,6 +69,7 @@ export const updateTask = async (req, res) => {
 
   const task = await Task.findByIdAndUpdate(taskId, req.body, {
     new: true,
+    runValidators: true,
   });
 
   if (!task) {
