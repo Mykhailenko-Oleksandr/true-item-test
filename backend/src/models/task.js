@@ -15,7 +15,6 @@ const tasksSchema = new Schema(
     tag: {
       type: [String],
       enum: TAGS,
-      default: ["All"],
     },
   },
   {

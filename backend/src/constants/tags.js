@@ -5,6 +5,5 @@ export const TAGS = [
   "Legal",
   "DevOps",
   "Designer",
-  "All",
   "Fullstack",
 ];

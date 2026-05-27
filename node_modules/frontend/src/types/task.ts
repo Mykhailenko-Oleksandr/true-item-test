@@ -1,6 +1,6 @@
 import type { Tag } from "./tag";
 
-export interface Snippet {
+export interface Task {
   _id: string;
   title: string;
   content: string;

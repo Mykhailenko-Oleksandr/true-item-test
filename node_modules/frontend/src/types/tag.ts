@@ -5,5 +5,4 @@ export type Tag =
   | "Legal"
   | "DevOps"
   | "Designer"
-  | "All"
   | "Fullstack";

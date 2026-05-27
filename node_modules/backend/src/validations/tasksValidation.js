@@ -27,8 +27,7 @@ export const createTaskSchema = {
     content: Joi.string().min(10).max(100).required(),
     tag: Joi.array()
       .items(Joi.string().valid(...TAGS))
-      .min(1)
-      .default(["All"]),
+      .min(1),
   }),
 };
 
@@ -41,7 +40,6 @@ export const updateTaskSchema = {
     content: Joi.string().min(10).max(100).required(),
     tag: Joi.array()
       .items(Joi.string().valid(...TAGS))
-      .min(1)
-      .default(["All"]),
+      .min(1),
   }),
 };
