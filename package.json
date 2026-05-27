@@ -10,5 +10,9 @@
     "dev:backend": "npm run dev --workspace=backend",
     "dev:frontend": "npm run dev --workspace=frontend",
     "test": "npm run test:run --workspaces"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.100.14",
+    "modern-normalize": "^3.0.1"
   }
 }

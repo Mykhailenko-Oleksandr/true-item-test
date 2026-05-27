@@ -1,0 +1,112 @@
+/* =====================================
+============== Variables ===============
+======================================== */
+
+:root {
+  --color-dark: #1a1a1a;
+  --color-dark-light: #333;
+  --color-dark-soft: #444444;
+  --color-dark-medium: #2c2c2c;
+  --color-white: #fff;
+  --color-white-soft: #f8f9fa;
+  --color-white-muted: #dee2e6;
+  --color-white-off: #ddd;
+  --color-blue: #0d6efd;
+  --color-blue-light: #0b5ed7;
+  --color-blue-soft: #e7f1ff;
+  --color-blue-muted: #b6d4fe;
+  --color-red: #dc3545;
+  --color-red-dark: #bb2d3b;
+}
+
+/* =====================================
+================ Base ==================
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-roboto), sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-white);
+
+  color: var(--color-dark);
+  line-height: 150%;
+
+  transition: all 250ms ease;
+
+  &.noScroll {
+    overflow: hidden;
+  }
+}
+
+main {
+  flex-grow: 1;
+}
+
+/* =====================================
+================ Reset =================
+======================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  color: currentColor;
+}
+
+input {
+  font-family: inherit;
+}
+
+/* =====================================
+============== Container ===============
+======================================== */
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    padding: 0 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    padding: 0 64px;
+  }
+}
