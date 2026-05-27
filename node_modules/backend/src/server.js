@@ -21,6 +21,13 @@ app.use(helmet());
 
 // app.use(authRoutes);
 
+app.get("/", (req, res) => {
+  res.json({
+    version: "1.0.0",
+    message: "Welcome to the True-Item-Test backend!",
+  });
+});
+
 app.use(notFoundHandler);
 
 app.use(errors());
