@@ -1,0 +1,122 @@
+.form {
+  width: 100%;
+}
+
+.inputBox {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  &:not(:last-of-type) {
+    margin-bottom: 30px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 40px;
+  }
+
+  &.textareaBox {
+    display: inline-flex;
+  }
+
+  & textarea {
+    resize: none;
+  }
+}
+
+.checkboxBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+
+  & label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    font-size: 18px;
+    color: var(--color-dark-medium);
+    cursor: pointer;
+  }
+
+  & input {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.subtitle {
+  font-size: 20px;
+  margin-bottom: 4px;
+
+  & span {
+    font-size: 14px;
+    color: var(--color-dark-medium);
+  }
+}
+
+.input {
+  line-height: 1.375;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  padding: 15px 17px;
+  width: 100%;
+  outline: none;
+
+  transition: border-color 300ms ease;
+
+  &:hover,
+  &:focus {
+    border-color: var(--color-text);
+  }
+}
+
+.selectLabel {
+  font-size: 20px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.select {
+  padding: 10px 10px;
+  border-radius: 12px;
+}
+
+.errorText {
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  color: var(--color-red);
+
+  font-size: 12px;
+}
+
+.submitBtn {
+  display: block;
+  border: none;
+  outline: none;
+  padding: 15px;
+  width: 230px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: var(--color-dark-medium);
+  color: var(--color-white);
+
+  transition: background-color 300ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-dark);
+  }
+
+  &:active {
+    background-color: var(--color-dark-medium);
+  }
+
+  &:disabled {
+    background-color: var(--color-dark);
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}

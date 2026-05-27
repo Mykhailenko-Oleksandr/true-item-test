@@ -1,0 +1,42 @@
+.sidebar {
+  max-width: 250px;
+  background-color: var(--color-dark-medium);
+  color: var(--color-white);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border-right: 1px solid var(--color-white-off);
+}
+
+.menuList {
+  position: sticky;
+  top: 30px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem {
+  margin-bottom: 5px;
+}
+
+.menuBtn {
+  display: block;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  color: var(--color-white);
+  font-size: 16px;
+  padding: 8px 16px;
+  width: 100%;
+  text-align: left;
+
+  transition: background-color 0.3s ease;
+}
+
+.menuBtn:hover {
+  background-color: var(--color-dark-soft);
+  color: var(--color-white-off);
+}

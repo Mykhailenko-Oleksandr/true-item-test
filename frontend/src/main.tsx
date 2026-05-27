@@ -2,10 +2,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 
 import "modern-normalize";
 import "./global.css";
+import { Toaster } from "react-hot-toast";
 
 import App from "./components/App/App";
 import Header from "./components/Header/Header";

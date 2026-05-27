@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  padding-left: 0;
+}
+
+.contentWrap {
+  width: 100%;
+}
+
+.topBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: var(--color-white-soft);
+  border-bottom: 1px solid var(--color-white-muted);
+  margin-bottom: 16px;
+  padding: 16px 32px;
+
+  max-height: 69px;
+}
+
+.createBtn {
+  padding: 6px 12px;
+  font-size: 16px;
+  color: var(--color-white);
+  background-color: var(--color-blue);
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.createBtn:hover {
+  background-color: var(--color-blue-light);
+}
+
+.modalTitle {
+  color: var(--color-dark-medium);
+  margin-bottom: 24px;
+}
