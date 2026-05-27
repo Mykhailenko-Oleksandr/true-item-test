@@ -39,3 +39,7 @@
   color: var(--color-dark-medium);
   margin-bottom: 24px;
 }
+
+.noTasks {
+  text-align: center;
+}

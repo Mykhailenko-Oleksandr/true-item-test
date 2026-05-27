@@ -26,7 +26,7 @@ export async function fetchTasks(
   perPage: number = 12,
   tag?: string,
 ) {
-  if (tag === "All") {
+  if (tag === "All" || tag === "") {
     tag = undefined;
   }
 

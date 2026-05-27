@@ -60,7 +60,7 @@ export default function Tasks() {
           {isError && <p>There was an error, please try again...</p>}
 
           {data !== undefined && data?.tasks.length === 0 && (
-            <p>No tasks found</p>
+            <p className={css.noTasks}>No tasks found</p>
           )}
 
           {data !== undefined && data?.tasks.length > 0 && (
