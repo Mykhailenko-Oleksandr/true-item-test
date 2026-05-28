@@ -56,7 +56,7 @@ interface Props {
 export default function FormTask({ closeModal, update, task }: Props) {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
-
+  console.log("task in form", task);
   const {
     register,
     handleSubmit,
@@ -64,6 +64,11 @@ export default function FormTask({ closeModal, update, task }: Props) {
   } = useForm<TasksFormData>({
     mode: "onTouched",
     resolver: yupResolver(schema),
+    defaultValues: {
+      title: task?.title || "",
+      content: task?.content || "",
+      tag: task?.tag || [],
+    },
   });
 
   const handleInputFilter = (
@@ -86,8 +91,9 @@ export default function FormTask({ closeModal, update, task }: Props) {
   const updateTaskMutate = useMutation({
     mutationFn: ({ id, data }: { id: string; data: TasksFormData }) =>
       updateTask(id, data),
-    onSuccess() {
+    onSuccess(data, variables) {
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
+      queryClient.invalidateQueries({ queryKey: ["task", variables.id] });
     },
     onError(error) {
       toast.error(error.message);
@@ -121,7 +127,6 @@ export default function FormTask({ closeModal, update, task }: Props) {
         <input
           type="text"
           placeholder="Enter title"
-          defaultValue={task?.title}
           className={css.input}
           {...register("title")}
           onInput={handleInputFilter}
@@ -135,7 +140,6 @@ export default function FormTask({ closeModal, update, task }: Props) {
       <div className={clsx(css.inputBox, css.textareaBox)}>
         <textarea
           rows={5}
-          defaultValue={task?.content}
           placeholder="Enter content"
           className={css.input}
           {...register("content")}
@@ -154,12 +158,7 @@ export default function FormTask({ closeModal, update, task }: Props) {
         {tags.map((tag) => {
           return (
             <label key={tag}>
-              <input
-                type="checkbox"
-                value={tag}
-                defaultChecked={task?.tag?.includes(tag)}
-                {...register("tag")}
-              />
+              <input type="checkbox" value={tag} {...register("tag")} />
               {tag}
             </label>
           );
