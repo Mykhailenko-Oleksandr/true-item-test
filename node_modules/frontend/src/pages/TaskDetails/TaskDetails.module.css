@@ -1,0 +1,126 @@
+.section {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.backBtn {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: var(--color-dark);
+  border: none;
+  outline: none;
+  text-decoration: underline;
+  background-color: transparent;
+
+  transition: transform 300ms ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+.contentWrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titleWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-white-off);
+  padding-bottom: 8px;
+
+  & h2 {
+    font-size: 28px;
+    color: var(--color-dark-light);
+  }
+
+  & p span {
+    font-size: 18px;
+    color: var(--color-dark-soft);
+  }
+}
+
+.content {
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--color-dark-soft);
+  white-space: pre-wrap;
+}
+
+.tagsList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  margin-bottom: 12px;
+}
+
+.tagItem {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 12px;
+  color: var(--color-blue);
+  background-color: var(--color-blue-soft);
+  border: 1px solid var(--color-blue-muted);
+  border-radius: 12px;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dateWrap {
+  margin-left: auto;
+}
+
+.date span {
+  font-size: 14px;
+  color: var(--color-dark-soft);
+}
+
+.updateBtn {
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 230px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: var(--color-dark-medium);
+  color: var(--color-white);
+
+  transition: background-color 300ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-dark);
+  }
+
+  &:active {
+    background-color: var(--color-dark-medium);
+  }
+}
+
+.modalTitle {
+  color: var(--color-dark-medium);
+  margin-bottom: 24px;
+}

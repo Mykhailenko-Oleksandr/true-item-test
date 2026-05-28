@@ -22,7 +22,6 @@ export default function Tasks() {
     queryKey: ["tasks", topic, page, tag],
     queryFn: () => fetchTasks(topic, page, 12, tag),
     placeholderData: keepPreviousData,
-    refetchOnMount: false,
   });
 
   const totalPages = data?.totalPages ?? 0;
@@ -37,7 +36,12 @@ export default function Tasks() {
   return (
     <section className={css.section}>
       <div className={clsx("container", css.container)}>
-        <Sidebar onChange={(tag) => setTag(tag)} />
+        <Sidebar
+          onChange={(tag) => {
+            setTag(tag);
+            setPage(1);
+          }}
+        />
         <div className={css.contentWrap}>
           <div className={css.topBox}>
             <SearchBox onChange={updateSearchWord} />
