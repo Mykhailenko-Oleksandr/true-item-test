@@ -5,9 +5,16 @@ interface SearchBoxProps {
   onChange: (searchWord: string) => void;
 }
 
+const FORBIDDEN_CHARS_REGEX = /[^a-zA-Z0-9а-яА-ЯіІїЇєЄґҐ\s.,!?()''""--]/g;
+
 export default function SearchBox({ onChange }: SearchBoxProps) {
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    onChange(event.target.value);
+    const rawValue = event.target.value;
+
+    const cleanedValue = rawValue.replace(FORBIDDEN_CHARS_REGEX, "");
+    event.target.value = cleanedValue;
+
+    onChange(cleanedValue);
   }
 
   return (
@@ -15,7 +22,7 @@ export default function SearchBox({ onChange }: SearchBoxProps) {
       onChange={handleChange}
       className={css.input}
       type="text"
-      placeholder="Search snippets"
+      placeholder="Search tasks..."
     />
   );
 }

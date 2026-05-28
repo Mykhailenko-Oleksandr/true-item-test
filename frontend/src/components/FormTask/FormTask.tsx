@@ -10,6 +10,7 @@ import type { Task } from "../../types/task";
 import { createTask, updateTask, type TasksFormData } from "../../lib/api";
 import type { ApiError } from "../../types/apiError";
 import { useNavigate } from "react-router-dom";
+import type { FormEvent } from "react";
 
 const tags: Tag[] = [
   "Frontend",
@@ -21,18 +22,23 @@ const tags: Tag[] = [
   "Fullstack",
 ];
 
+const safeTextRegex = /^[a-zA-Z0-9а-яА-ЯіІїЇєЄґҐ\s.,!?()''""--]+$/;
+const FORBIDDEN_CHARS_REGEX = /[^a-zA-Z0-9а-яА-ЯіІїЇєЄґҐ\s.,!?()''""--]/g;
+
 const schema = yup
   .object({
     title: yup
       .string()
       .min(1, "Title must be at least 1 character")
       .max(50, "Title must be at most 50 characters")
-      .required("Title is required"),
+      .required("Title is required")
+      .matches(safeTextRegex, "Title contains forbidden special characters!"),
     content: yup
       .string()
       .min(10, "Content must be at least 10 characters")
       .max(100, "Content must be at most 100 characters")
-      .required("Content is required"),
+      .required("Content is required")
+      .matches(safeTextRegex, "Content contains forbidden special characters!"),
     tag: yup
       .array()
       .of(yup.string().oneOf(tags).defined())
@@ -59,6 +65,13 @@ export default function FormTask({ closeModal, update, task }: Props) {
     mode: "onTouched",
     resolver: yupResolver(schema),
   });
+
+  const handleInputFilter = (
+    event: FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const target = event.currentTarget;
+    target.value = target.value.replace(FORBIDDEN_CHARS_REGEX, "");
+  };
 
   const createTaskMutate = useMutation({
     mutationFn: (data: TasksFormData) => createTask(data),
@@ -111,6 +124,7 @@ export default function FormTask({ closeModal, update, task }: Props) {
           defaultValue={task?.title}
           className={css.input}
           {...register("title")}
+          onInput={handleInputFilter}
         />
 
         {errors.title?.message && (
@@ -125,6 +139,7 @@ export default function FormTask({ closeModal, update, task }: Props) {
           placeholder="Enter content"
           className={css.input}
           {...register("content")}
+          onInput={handleInputFilter}
         />
 
         {errors.content?.message && (
@@ -154,25 +169,6 @@ export default function FormTask({ closeModal, update, task }: Props) {
           <span className={css.errorText}>{errors.tag?.message}</span>
         )}
       </div>
-
-      {/* <div className={css.inputBox}>
-        <label className={css.selectLabel}>
-          Type:&emsp;
-          <select
-            className={css.select}
-            defaultValue={task ? task.type : "Note"}
-            {...register("type")}
-          >
-            <option value="Link">Link</option>
-            <option value="Note">Note</option>
-            <option value="Command">Command</option>
-          </select>
-        </label>
-
-        {errors.type?.message && (
-          <span className={css.errorText}>{errors.type?.message}</span>
-        )}
-      </div> */}
 
       <button className={css.submitBtn} type="submit" disabled={!isValid}>
         {update ? "Update task" : "Create task"}
